@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs";
+import { qs, setLocalStorage } from "./utils.mjs";
  
 export default class ProductDetails {
     constructor(product_id, dataSource) {
@@ -9,7 +9,7 @@ export default class ProductDetails {
     async init() {
         this.product = await this.dataSource.findProductById(this.product_id);
         this.renderProductDetails();
-        document.getElementById('addToCart')
+        qs('#addToCart')
             .addEventListener('click', this.addProductToCart.bind(this));
     }
 
@@ -42,6 +42,6 @@ export default class ProductDetails {
                 <button id="addToCart" data-id="${this.product.ID}">Add to Cart</button>
             </div>
       `;
-        document.querySelector('.product-detail').innerHTML = template;
+      qs('.product-detail').innerHTML = template;
     }
 }
