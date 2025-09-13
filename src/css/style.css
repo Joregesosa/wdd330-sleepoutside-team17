@@ -12,6 +12,7 @@
   --font-base: 18px;
   --small-font: 0.8em;
   --large-font: 1.2em;
+  --x-small-font: 0.6em;
 }
 
 * {
@@ -129,6 +130,20 @@ button {
 
 .cart:hover svg {
   fill: gray;
+}
+
+.cart__count {
+  position: absolute;
+  top: .25rem;
+  right: 0;
+  background-color: var(--primary-color);
+  color: var(--dark-grey);
+  border-radius: 50%;
+  width: 20px;
+  aspect-ratio: 1/1;
+  font-size: var(--x-small-font);
+  line-height: 20px; 
+  font-weight: bold;
 }
 
 /* End cart icon styles */
