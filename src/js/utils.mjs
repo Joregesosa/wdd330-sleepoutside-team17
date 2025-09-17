@@ -60,4 +60,19 @@ export async function loadHeaderFooter () {
   
   renderWithTemplate(headertTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+  updateCartCount();
+}
+
+export function updateCartCount() {
+    const cart = qs('.cart');
+    if (!cart) return;
+    const cartCount = qs('.cart__count');
+    cartCount?.remove();
+    const cartItems = getLocalStorage('so-cart') || [];
+    const itemCount = cartItems.length;
+
+    if (itemCount > 0) {
+        const template = `<span class="cart__count">${itemCount}</span>`;
+        cart.insertAdjacentHTML('beforeend', template);
+    }
 }
