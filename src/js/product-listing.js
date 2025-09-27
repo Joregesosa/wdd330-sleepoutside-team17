@@ -12,3 +12,7 @@ const dataSource = new ProductData();
 const listElement = qs('.product-list');
 const productList = new ProductList(category, dataSource, listElement);
 productList.init();
+
+// Update category title
+const categoryTitle = qs('.products > h2')
+categoryTitle.textContent += ': ' + category.charAt(0).toUpperCase() + category.slice(1);
