@@ -1,4 +1,4 @@
-import { qs, getLocalStorage } from './utils.mjs';
+import { updateCartCount } from './utils.mjs';
 
 const originalSetItem = localStorage.setItem;
 
@@ -10,19 +10,6 @@ localStorage.setItem = function (key, value) {
     } catch (error) {
         console.error('Error setting localStorage item:', error);
         throw error;
-    }
-}
-
-function updateCartCount() {
-    const cart = qs('.cart');
-    const cartCount = qs('.cart__count');
-    cartCount?.remove();
-    const cartItems = getLocalStorage('so-cart') || [];
-    const itemCount = cartItems.length;
-    console.log(itemCount);
-    if (itemCount > 0) {
-        const template = `<span class="cart__count">${itemCount}</span>`;
-        cart.insertAdjacentHTML('beforeend', template);
     }
 }
 

@@ -256,6 +256,29 @@ button {
   grid-column: 3;
 }
 
+.category-list{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1em;
+  align-items: center;
+  padding-block: 2rem;
+  list-style: none;
+}
+
+.product-category{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+} 
+ 
+.product-category span { 
+  text-align: center;
+  font-weight: bold;
+  color: var(--dark-grey);
+}
+  
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
