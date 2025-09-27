@@ -7,7 +7,7 @@ import { qs } from './utils.mjs';
 loadHeaderFooter();
 
 // Initialize product list
-const category = getParam('category') || 'tents';
+const category = getParam('category'); 
 const dataSource = new ProductData();
 const listElement = qs('.product-list');
 const productList = new ProductList(category, dataSource, listElement);
