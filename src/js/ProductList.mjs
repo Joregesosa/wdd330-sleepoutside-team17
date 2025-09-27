@@ -22,10 +22,11 @@ export default class ProductList {
 function productCardTemplate(product) { 
   return `
           <li class="product-card">
-            <a href="/product_pages/?product=${product.Id}">
+            <a href="../product_pages/?product=${product.Id}">
               <img
-                src="${product.Images.PrimaryLarge}"
+                src="${product.Images.PrimaryMedium}"
                 alt="${product.Name}"
+                loading="lazy"
               />
               <h3 class="card__brand">${product.Brand.Name}</h3>
               <h2 class="card__name">${product.Name}</h2>

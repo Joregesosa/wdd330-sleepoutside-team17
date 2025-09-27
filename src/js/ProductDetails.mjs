@@ -1,5 +1,5 @@
 import { qs, setLocalStorage } from "./utils.mjs";
- 
+
 export default class ProductDetails {
     constructor(product_id, dataSource) {
         this.product_id = product_id;
@@ -27,8 +27,10 @@ export default class ProductDetails {
             <h2 class="divider">${this.product.Name}</h2>
 
             <img class="divider"
-                src="${this.product.Image}"
-                alt="${this.product.Name}" />
+                src="${this.product.Images.PrimaryLarge}"
+                alt="${this.product.Name}" 
+                loading="lazy"
+            />
 
             <p class="product-card__price">$${this.product.FinalPrice}</p>
 
@@ -42,6 +44,6 @@ export default class ProductDetails {
                 <button id="addToCart" data-id="${this.product.ID}">Add to Cart</button>
             </div>
       `;
-      qs('.product-detail').innerHTML = template;
+        qs('.product-detail').innerHTML = template;
     }
 }
