@@ -1,5 +1,5 @@
-const baseURL = "https://wdd330-backend.onrender.com/";
-console.log(baseURL);
+const baseURL = import.meta.env.VITE_SERVER_URL; // Api base URL
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
