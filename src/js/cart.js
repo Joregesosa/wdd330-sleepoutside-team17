@@ -10,7 +10,7 @@ function renderCartContents() {
 }
 
 function removeItemFromCart(e) {
-  const id = e.target.getAttribute("data-id"); 
+  const id = e.target.getAttribute("data-id");
   if (!id) return;
   const cartItems = getLocalStorage("so-cart") || [];
   const updatedCart = cartItems.filter((item) => item.Id !== id);
@@ -42,6 +42,23 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
+function getCartTotal() {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+  return total.toFixed(2);
+}
+
+function setCartTotal() {
+  const total = getCartTotal();
+  const cartTotalElement = qs(".cart-total");
+  const cartFooter = qs(".cart-footer");
+  total > 0 ?
+    cartFooter.classList.remove("hide")
+    : cartFooter.classList.add("hide");
+  cartTotalElement.insertAdjacentHTML("beforeend", ` $${total}`);
+}
+
+setCartTotal();
 renderCartContents();
 
 productList.addEventListener("click", removeItemFromCart);
